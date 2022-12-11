@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "repl_nix_Engl-shNet-1"
+version = "0.1.0"
+description = ""
+authors = ["Replit user <<>>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.2.2"
+requests = "^2.28.1"
+django-remember_me = "^0.2d0"
+remember = "^0.1"
+prop-request = "^1.2.7"
+requests2 = "^2.16.0"
+APScheduler = "^3.9.1"
+APScheduler-ng = "^0.0.1"
+Flask-APScheduler = "^1.12.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

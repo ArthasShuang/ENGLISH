@@ -1,0 +1,66 @@
+<!doctype html>
+<!--文档类型的说明-->
+
+<html lang="en">
+<head>
+<!--    头部，放文档信息-->
+    <meta charset="UTF-8">
+    <title>英语学习网</title>
+</head>
+
+<body>
+    <h1>Current time:</h1>
+    <textarea rows="10" cols="20">
+        {{ loct }}
+    </textarea>
+    <div style="display: inline-block">
+      <ul>
+        {% if (loct.tm_hour == 8 and card == 0)%}
+        <li>
+          {
+            <a href="http://localhost:5000/get_email">
+              <h1>Login</h1>
+          }
+        </li>
+        {% elif (loct.tm_hour == 0 and loct.tm_minute == 0 and loct.tm_second == 0)%}
+        <li>
+          {
+            <a href="http://localhost:5000/delete_email">
+              <h1>Login</h1>
+          }
+        </li>
+        {% else %}
+        <li>
+          {
+            <a href="http://localhost:5000/get_email">
+              <h1>You have logged in</h1>
+          }
+        </li>
+        {% end %}
+      </ul>
+
+    </div>
+  
+    <div>
+        <img src="https://hcdn2.luffycity.com/media/frontend/index/1920*390@2x.png"
+    width = "100%" height="300" alt="加载失败">
+    </div>
+
+    <div style="display: inline-block">
+        <a href="/fanyi">
+            <p>在线翻译</p>
+            <img src="https://src.onlinedown.net/images/pc_imges/pc_12/592f50d55c52d403401496273109.jpg"
+            width="300" height="300">
+        </a>
+    </div>
+    <div style="display: inline-block">
+        <a href="beidanci">
+            <p>背单词</p>
+            <img src="https://manager.ubest.cn/u/cms/www/202010/09165107mree.jpg"
+            width="300" height="300">
+        </a>
+    </div>
+
+</body>
+
+</html>
