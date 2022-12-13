@@ -37,6 +37,10 @@ app.secret_key = 'BAD_SECRET_KEY'
 def index():
   return render_template("index.html")
   
+@app.route("/fanyi")
+def fanyi():
+  return render_template("fanyi.html")
+
 #qidong flask zijide fuwuqi
 @app.route("/tran")
 def tran():
@@ -63,11 +67,12 @@ def beidanci():
 
 #** hou fanhui {}
 @app.route("/danci")
-def danci(chapter):  
-  conn = sqlite3.connect()  
+def danci():  
+  chapter = request.args.get("chapter")
+  conn = sqlite3.connect('单词数据库.db')  
   #buıld connector
   cursor = conn.cursor()  
-  cursor.execute('select * from words where   chapter = chapter')
+  cursor.execute('select * from words where   chapter = 1')
   data = cursor.fetchall()
   #print(data)
   return render_template('danci.html',**{"data": data})
@@ -117,13 +122,14 @@ def delete_email():
 def daka():
   t0 = time.time()
   loct = time.localtime(t0)
+  card = 0
   if (loct.tm_hour == 0 and loct.tm_min == 0 and   loct.tm_sec == 0):
     card = 0
   if card == 0:
     sched = BlockingScheduler()
-    sched.add_job(func = CARD, trigger = 'cron', month = '*', day = '*', hour = '8', minute = '*')
+    sched.add_job(func = CARD, trigger = 'cron', month = '*', day = '*', hour = '8', minute = '*', args=[card])
     sched.add_job(func = reject, trigger = 'cron', month = '*', day = '*', hour = '0-7', minute = '*')
-    sched.add_job(func = reject, trigger = 'cron', month = '*', day = '*', hour = '9-24', minute = '*')
+    sched.add_job(func = reject, trigger = 'cron', month = '*', day = '*', hour = '9-23', minute = '*')
     card += 1
   if card > 0:  
     repeat()
