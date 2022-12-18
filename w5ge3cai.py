@@ -39,7 +39,23 @@ def danci():
   return render_template('danci.html',**{"data": data})
 
 def main():
-  c = input('Hi, please input your name: ')
-  c0 = get_stroke(c)
-  
+  c1 = input('Hi, please input your surname: ')
+  c01 = get_stroke(c1)
+  c2 = input('Hi, please input your First name: ')
+  c02 = get_stroke(c2)
+  c3 = input('Hi, please input your Middle name: . If none just input 0')
+  c03 = get_stroke(c3)
+  t0 = time.time()
+  loct = time.localtime(t0)
+  card = 0
+  if (loct.tm_hour == 0 and loct.tm_min == 0 and   loct.tm_sec == 0):
+    card = 0
+  if card == 0:
+    sched = BlockingScheduler()
+    sched.add_job(func = CARD, trigger = 'cron', month = '*', day = '*', hour = '8', minute = '*', args=[card])
+    sched.add_job(func = reject, trigger = 'cron', month = '*', day = '*', hour = '0-7', minute = '*')
+    sched.add_job(func = reject, trigger = 'cron', month = '*', day = '*', hour = '9-23', minute = '*')
+    card += 1
+  if card > 0:  
+    repeat()
   
