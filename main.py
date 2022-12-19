@@ -5,12 +5,23 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from importlib import reload
 import requests
 
-start = [13311,19968,63744,131072,173824,177984,178208,194995]
-end = [19893, 40917, 64045, 173782, 177972, 178205,183969, 194998]
-strokes_path = https://github.com/helmz/Corpus/blob/master/zh_dict/strokes.txt
+def reject():
+  print('It is not in the time for Recordıng!')
+
+def repeat():
+  print('You have recorded today!')
+
+def CARD(card):   
+  print('Welcome to extend the vocabulary!')
+  card += 1
+  return card
 
 def get_stroke(c):
     # 如果返回 0, 则也是在unicode中不存在kTotalStrokes字段
+    start = [13311,19968,63744,131072,173824,177984,178208,194995]
+    end = [19893, 40917, 64045, 173782, 177972, 178205,183969, 194998]
+    strokes_path = https://github.com/helmz/Corpus/blob/master/zh_dict/strokes.txt
+
     strokes = []
     with open(strokes_path, 'r') as fr:
         for line in fr:
@@ -32,11 +43,26 @@ def index():
 
 @app.route("/w5ge3cai")
 def w5ge3cai():
+  kd = request.args.get("kd")
+  print(kd)
+  if len(kd) == 2:
+    surname = kd[0]
+    lastname = kd[1]
+  elif len(kd) == 3:
+    surname = kd[0]
+    middlename = kd[1]
+    lastname = kd[2]
+  elif len(kd) == 4:
+    surname = kd[0]+kd[1]
+    middlename = kd[2]
+    lastname = kd[3]  
+  else:
+    c0 = 
   return render_template("w5ge3cai.html")
 
-@app.route("/danci")
-def danci():  
-  return render_template('danci.html',**{"data": data})
+@app.route("/meihuyishu")
+def meihuayishu():  
+  return render_template('meihuayishu.html')
 
 def main():
   c1 = input('Hi, please input your surname: ')
