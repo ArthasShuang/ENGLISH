@@ -38,8 +38,8 @@ def index():
   return render_template("index.html")
   
 #qidong flask zijide fuwuqi
-@app.route("/tran")
-def tran():
+@app.route("/fanyi")
+def fanyi():
   kd = request.args.get("kd")
   print(kd)
   #yunyong youdaozhiyun AI fanyi
