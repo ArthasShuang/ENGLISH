@@ -5,6 +5,34 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from importlib import reload
 import requests
 
+from flask import Flask, render_template, request, session, redirect, url_for
+from importlib import reload
+import requests
+import time
+import sys
+import re
+import logging
+import sqlite3
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+def reject():
+  print('It is not in the time for Recordıng!')
+
+def repeat():
+  print('You have recorded today!')
+
+def CARD(card):   
+  print('Welcome to extend the vocabulary!')
+  card += 1
+  return card
+
+  
+#创建flask duixiang
+app = Flask(__name__)
+
+app.secret_key = 'BAD_SECRET_KEY'
+
+
 def reject():
   print('It is not in the time for Recordıng!')
 
