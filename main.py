@@ -157,6 +157,7 @@ def w5ge3cai():
   W5uG = [TianGCW, RenGCW, DiGCW, WaiGCW, ZongCW]
   S3C = S3anCai(TianGC, RenGC, DiGC)
     return render_template("w5ge3cai.html",**{
+  "kd": kd,
   "W5uG": W5uG,
   "S3C": S3C
 })
