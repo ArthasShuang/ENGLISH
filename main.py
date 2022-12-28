@@ -40,8 +40,8 @@ def W5uGe(digitNum):
     W5uGe == 'Jin'
   elif Num == 9 or Num == 0:
     W5uGe == 'Shui'
-  else：
-    assert(W5uGe<= 9, 'W5uGe is supposed to be one single digit number!')
+  # else:
+  #   assert(W5uGe<= 9, 'W5uGe is supposed to be one single digit number!')
   return W5uGe
 
 def S3anCai(TianGC, RenGC, DiGC):
@@ -72,7 +72,7 @@ def get_stroke(c):
     # 如果返回 0, 则也是在unicode中不存在kTotalStrokes字段
     start = [13311,19968,63744,131072,173824,177984,178208,194995]
     end = [19893, 40917, 64045, 173782, 177972, 178205,183969, 194998]
-    strokes_path = https://github.com/helmz/Corpus/blob/master/zh_dict/strokes.txt
+    strokes_path = 'https://github.com/helmz/Corpus/blob/master/zh_dict/strokes.txt'
 
     strokes = []
     with open(strokes_path, 'r') as fr:
@@ -156,7 +156,7 @@ def w5ge3cai():
   ZongCW = W5uGe(ZongGC)
   W5uG = [TianGCW, RenGCW, DiGCW, WaiGCW, ZongCW]
   S3C = S3anCai(TianGC, RenGC, DiGC)
-    return render_template("w5ge3cai.html",**{
+  return render_template("w5ge3cai.html",**{
   "kd": kd,
   "W5uG": W5uG,
   "S3C": S3C
